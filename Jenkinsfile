@@ -56,4 +56,5 @@ node {
         sh "./mvnw -ntp jib:build"
 
     }
+  }
 }

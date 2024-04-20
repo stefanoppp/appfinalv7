@@ -405,7 +405,15 @@
                             </platforms>
                         </from>
                         <to>
-                            <image>store:latest</image>
+                            <image>stefanoppp/jenkinsfinal:latest</image>
+                            <tags>
+                                <tag>${project.version}</tag>
+                                <tag>latest</tag>
+                            </tags>
+                            <auth>
+                                <username>${DOCKER_REGISTRY_USER}</username>
+                                <password>${DOCKER_REGISTRY_PWD}</password>
+                            </auth>
                         </to>
                         <container>
                             <entrypoint>
@@ -562,17 +570,7 @@
                     <artifactId>maven-failsafe-plugin</artifactId>
                     <version>${maven-failsafe-plugin.version}</version>
                     <configuration>
-                        <to>
-                            <image>stefanoppp/jenkinsfinal:latest</image>
-                            <tags>
-                                <tag>${project.version}</tag>
-                                <tag>latest</tag>
-                            </tags>
-                            <auth>
-                                <username>${DOCKER_REGISTRY_USER}</username>
-                                <password>${DOCKER_REGISTRY_PWD}</password>
-                            </auth>
-                        </to>
+
                         <classesDirectory>${project.build.outputDirectory}</classesDirectory>
                         <runOrder>alphabetical</runOrder>
                         <includes>
